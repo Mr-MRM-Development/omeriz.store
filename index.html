@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMERIZ Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Title Bar Windows Style -->
+  <div class="title-bar">
+      <div class="window-title">OMERIZ Store</div>
+      <div class="window-control close" onclick="window.close()">
+          <i class="fas fa-times"></i>
+      </div>
+  </div>
+  
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">OS</div>
+          <div class="logo-text">OMERIZ Store</div>
+        </div>
+      </div>
+      
+      <ul class="sidebar-menu">
+        <li><a href="#" class="active"><i class="fas fa-home"></i> Beranda</a></li>
+      </ul>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header>
+        <div class="header-title">
+          <h1>OMERIZ Store</h1>
+          <p>Download OMERIZ mu Secara Cepat Dan Aman</p>
+        </div>
+        
+        <div class="header-actions">
+          <button class="btn btn-secondary">
+            <i class="fas fa-filter"></i> Filter
+          </button>
+        </div>
+      </header>
+      
+      <!-- Search Section -->
+      <section class="search-section">
+        <div class="search-container">
+          <input type="search" id="filter" placeholder="Cari file berdasarkan nama..." />
+          <button class="search-btn" id="searchBtn">
+            <i class="fas fa-search"></i> Cari
+          </button>
+        </div>
+        <div class="stats">
+          <span id="fileCount">Memuat data file...</span>
+          <span id="filterInfo"></span>
+        </div>
+      </section>
+      
+      <!-- Apps Grid -->
+      <div class="apps-grid" id="appsGrid">
+        <div class="loading">
+          <div class="spinner"></div>
+        </div>
+      </div>
+      
+      <!-- Pagination -->
+      <div class="pagination">
+        <button id="prevBtn" disabled>
+          <i class="fas fa-chevron-left"></i> Sebelumnya
+        </button>
+        <span id="pageInfo">Halaman 1 dari 1</span>
+        <button id="nextBtn" disabled>
+          Berikutnya <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      
+      <!-- Footer -->
+      <!-- <footer>
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Tentang AppHub</h3>
+            <ul>
+              <li><a href="#">Tentang Kami</a></li>
+              <li><a href="#">Karir</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Kebijakan Privasi</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Untuk Pengembang</h3>
+            <ul>
+              <li><a href="#">Kirim Aplikasi</a></li>
+              <li><a href="#">Dokumentasi API</a></li>
+              <li><a href="#">Panduan Pengembang</a></li>
+              <li><a href="#">Forum</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Dukungan</h3>
+            <ul>
+              <li><a href="#">Bantuan</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Hubungi Kami</a></li>
+              <li><a href="#">Status Layanan</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Ikuti Kami</h3>
+            <ul>
+              <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+              <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+              <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="copyright">
+          <p>&copy; 2023 AppHub - Platform distribusi file terpercaya. Semua hak dilindungi.</p>
+        </div>
+      </footer> -->
+    </div>
+  </div>
+  
+  <!-- App Detail Modal -->
+  <div class="modal" id="appDetailModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Detail File</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Konten detail file akan dimuat di sini -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
