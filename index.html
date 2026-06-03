@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>OMERIZ Store - Modern App Gallery</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -61,10 +61,10 @@
         
         <div class="header-actions">
           <button class="btn btn-secondary" id="sortBtn">
-            <i class="fas fa-sort-amount-down"></i> Sort by Date
+            <i class="fas fa-sort-amount-down"></i> <span>Sort by Date</span>
           </button>
           <button class="btn btn-secondary" id="viewToggle">
-            <i class="fas fa-list"></i>
+            <i class="fas fa-list"></i> <span>List View</span>
           </button>
         </div>
       </header>
@@ -75,12 +75,12 @@
           <div class="search-icon">
             <i class="fas fa-search"></i>
           </div>
-          <input type="search" id="filter" placeholder="Cari file berdasarkan nama..." />
+          <input type="search" id="filter" placeholder="Cari file..." />
           <button class="search-btn" id="searchBtn">
-            <i class="fas fa-search"></i> Cari
+            <i class="fas fa-search"></i> <span>Cari</span>
           </button>
           <button class="clear-btn" id="clearSearch" style="display: none;">
-            <i class="fas fa-times"></i>
+            <i class="fas fa-times"></i> <span>Hapus</span>
           </button>
         </div>
         <div class="stats">
@@ -101,11 +101,11 @@
       <!-- Pagination -->
       <div class="pagination">
         <button id="prevBtn" disabled>
-          <i class="fas fa-chevron-left"></i> Sebelumnya
+          <i class="fas fa-chevron-left"></i> <span>Sebelumnya</span>
         </button>
         <span id="pageInfo">Halaman 1 dari 1</span>
         <button id="nextBtn" disabled>
-          Berikutnya <i class="fas fa-chevron-right"></i>
+          <span>Berikutnya</span> <i class="fas fa-chevron-right"></i>
         </button>
       </div>
     </div>

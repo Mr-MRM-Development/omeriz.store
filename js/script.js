@@ -564,3 +564,4 @@ window.trackDownload = trackDownload;
 
 // Inisialisasi
 loadFiles();
+setTimeout(resetAllFilters, 300);

@@ -785,38 +785,232 @@ header {
     color: var(--text-secondary);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ========== RESPONSIVE STYLES ========== */
+
+/* Tablet (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .main-content {
+        padding: 16px;
+    }
+    
+    .apps-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+    }
+    
+    .header-title h1 {
+        font-size: 20px;
+    }
+    
+    .header-title p {
+        font-size: 12px;
+    }
+    
+    .btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    /* Search container tetap horizontal */
+    .search-container {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+    }
+    
+    #filter {
+        padding: 10px 12px 10px 36px;
+        font-size: 12px;
+    }
+    
+    .search-btn, .clear-btn {
+        padding: 10px 16px;
+    }
+    
+    /* Sembunyikan teks tombol, tampilkan hanya icon */
+    .search-btn span, .clear-btn span {
+        display: none;
+    }
+    
+    .search-btn i, .clear-btn i {
+        margin: 0;
+        font-size: 14px;
+    }
+    
+    .search-btn, .clear-btn {
+        padding: 10px 14px;
+    }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+    /* Sidebar hidden by default */
     .sidebar {
         position: fixed;
         height: calc(100% - var(--titlebar-height));
         transform: translateX(-100%);
         z-index: 100;
+        width: 260px;
     }
     
     .sidebar.active {
         transform: translateX(0);
     }
     
-    .apps-grid {
-        grid-template-columns: 1fr;
+    .main-content {
+        padding: 12px;
+    }
+    
+    /* Header responsive */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    
+    .header-title h1 {
+        font-size: 18px;
+    }
+    
+    .header-title p {
+        font-size: 11px;
     }
     
     .header-actions {
         width: 100%;
+        gap: 8px;
     }
     
+    .header-actions .btn {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    /* Search container - tetap horizontal, tidak numpuk */
     .search-container {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+    }
+    
+    #filter {
+        flex: 1;
+        padding: 10px 12px 10px 34px;
+        font-size: 12px;
+    }
+    
+    .search-icon {
+        left: 10px;
+        font-size: 12px;
+    }
+    
+    /* Tombol search dan clear - hanya icon, tanpa teks */
+    .search-btn, .clear-btn {
+        padding: 10px 12px;
+        gap: 0;
+    }
+    
+    .search-btn span, .clear-btn span {
+        display: none;
+    }
+    
+    .search-btn i, .clear-btn i {
+        margin: 0;
+        font-size: 14px;
+    }
+    
+    /* Stats responsive */
+    .stats {
+        flex-direction: column;
+        gap: 4px;
+        font-size: 11px;
+    }
+    
+    /* Grid */
+    .apps-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    /* Card */
+    .app-card {
+        display: flex;
         flex-direction: column;
     }
     
-    .search-btn, .clear-btn {
-        padding: 10px;
-        justify-content: center;
-        width: 100%;
+    .app-image {
+        height: 120px;
     }
     
-    .main-content {
+    .app-info {
+        padding: 12px;
+    }
+    
+    .app-title {
+        font-size: 14px;
+    }
+    
+    .app-description {
+        font-size: 11px;
+        -webkit-line-clamp: 2;
+    }
+    
+    .app-meta {
+        font-size: 10px;
+    }
+    
+    /* List view di mobile */
+    .apps-container.list-view .app-card {
+        flex-direction: column;
+    }
+    
+    .apps-container.list-view .app-image {
+        width: 100%;
+        height: 100px;
+    }
+    
+    /* Pagination */
+    .pagination {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
+    .pagination button {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+    
+    .pagination button span {
+        display: none;
+    }
+    
+    .pagination button i {
+        margin: 0;
+    }
+    
+    #pageInfo {
+        font-size: 11px;
+    }
+    
+    /* Modal */
+    .modal-content {
+        margin: 16px;
+        max-height: 85vh;
+    }
+    
+    .modal-header {
+        padding: 12px 16px;
+    }
+    
+    .modal-title {
+        font-size: 16px;
+    }
+    
+    .modal-body {
         padding: 16px;
     }
     
@@ -824,9 +1018,90 @@ header {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 12px;
+    }
+    
+    .app-detail-image {
+        width: 70px;
+        height: 70px;
+        font-size: 1.5rem;
+    }
+    
+    .app-detail-title {
+        font-size: 16px;
     }
     
     .app-detail-actions {
         justify-content: center;
+    }
+    
+    .app-detail-actions .btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    /* Toast */
+    .toast {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+}
+
+/* Mobile Landscape (480px - 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+    .apps-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .app-image {
+        height: 110px;
+    }
+}
+
+/* Small Mobile (max-width: 380px) */
+@media (max-width: 380px) {
+    .main-content {
+        padding: 8px;
+    }
+    
+    .search-container {
+        gap: 6px;
+    }
+    
+    #filter {
+        padding: 8px 8px 8px 32px;
+        font-size: 11px;
+    }
+    
+    .search-btn, .clear-btn {
+        padding: 8px 10px;
+    }
+    
+    .search-btn i, .clear-btn i {
+        font-size: 12px;
+    }
+    
+    .app-image {
+        height: 100px;
+    }
+    
+    .app-info {
+        padding: 10px;
+    }
+    
+    .app-title {
+        font-size: 13px;
+    }
+    
+    .app-actions .btn {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+    
+    .pagination button {
+        padding: 5px 10px;
     }
 }
