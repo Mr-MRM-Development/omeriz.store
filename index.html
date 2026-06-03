@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OMERIZ Store</title>
+  <title>OMERIZ Store - Modern App Gallery</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="dark">
   <!-- Title Bar Windows Style -->
   <div class="title-bar">
-      <div class="window-title">OMERIZ Store</div>
-      <div class="window-control close" onclick="window.close()">
-          <i class="fas fa-times"></i>
+      <div class="window-title">OMERIZ Store v2.0</div>
+      <div class="window-controls">
+          <div class="window-control close" onclick="window.close()">
+              <i class="fas fa-times"></i>
+          </div>
       </div>
   </div>
   
@@ -28,8 +30,24 @@
       </div>
       
       <ul class="sidebar-menu">
-        <li><a href="#" class="active"><i class="fas fa-home"></i> Beranda</a></li>
+        <li><a href="#" class="active" data-filter="all"><i class="fas fa-home"></i> Beranda</a></li>
+        <li><a href="#" data-filter="recent"><i class="fas fa-clock"></i> Terbaru</a></li>
+        <li><a href="#" data-filter="popular"><i class="fas fa-fire"></i> Populer</a></li>
       </ul>
+      
+      <div class="sidebar-footer">
+        <div class="theme-switch-wrapper" id="themeToggleSidebar">
+          <i class="fas fa-sun"></i>
+          <span>Light Mode</span>
+          <div class="theme-switch">
+            <div class="theme-switch-handle"></div>
+          </div>
+        </div>
+        <div class="storage-info">
+          <i class="fas fa-database"></i>
+          <span id="storageCount">0 Files</span>
+        </div>
+      </div>
     </aside>
     
     <!-- Main Content -->
@@ -42,8 +60,11 @@
         </div>
         
         <div class="header-actions">
-          <button class="btn btn-secondary">
-            <i class="fas fa-filter"></i> Filter
+          <button class="btn btn-secondary" id="sortBtn">
+            <i class="fas fa-sort-amount-down"></i> Sort by Date
+          </button>
+          <button class="btn btn-secondary" id="viewToggle">
+            <i class="fas fa-list"></i>
           </button>
         </div>
       </header>
@@ -51,9 +72,15 @@
       <!-- Search Section -->
       <section class="search-section">
         <div class="search-container">
+          <div class="search-icon">
+            <i class="fas fa-search"></i>
+          </div>
           <input type="search" id="filter" placeholder="Cari file berdasarkan nama..." />
           <button class="search-btn" id="searchBtn">
             <i class="fas fa-search"></i> Cari
+          </button>
+          <button class="clear-btn" id="clearSearch" style="display: none;">
+            <i class="fas fa-times"></i>
           </button>
         </div>
         <div class="stats">
@@ -62,10 +89,12 @@
         </div>
       </section>
       
-      <!-- Apps Grid -->
-      <div class="apps-grid" id="appsGrid">
-        <div class="loading">
-          <div class="spinner"></div>
+      <!-- Apps Grid/List View -->
+      <div class="apps-container" id="appsContainer">
+        <div class="apps-grid" id="appsGrid">
+          <div class="loading">
+            <div class="spinner"></div>
+          </div>
         </div>
       </div>
       
@@ -79,55 +108,6 @@
           Berikutnya <i class="fas fa-chevron-right"></i>
         </button>
       </div>
-      
-      <!-- Footer -->
-      <!-- <footer>
-        <div class="footer-content">
-          <div class="footer-column">
-            <h3>Tentang AppHub</h3>
-            <ul>
-              <li><a href="#">Tentang Kami</a></li>
-              <li><a href="#">Karir</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Kebijakan Privasi</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-column">
-            <h3>Untuk Pengembang</h3>
-            <ul>
-              <li><a href="#">Kirim Aplikasi</a></li>
-              <li><a href="#">Dokumentasi API</a></li>
-              <li><a href="#">Panduan Pengembang</a></li>
-              <li><a href="#">Forum</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-column">
-            <h3>Dukungan</h3>
-            <ul>
-              <li><a href="#">Bantuan</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Hubungi Kami</a></li>
-              <li><a href="#">Status Layanan</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-column">
-            <h3>Ikuti Kami</h3>
-            <ul>
-              <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-              <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-              <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-              <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="copyright">
-          <p>&copy; 2023 AppHub - Platform distribusi file terpercaya. Semua hak dilindungi.</p>
-        </div>
-      </footer> -->
     </div>
   </div>
   
@@ -142,6 +122,12 @@
         <!-- Konten detail file akan dimuat di sini -->
       </div>
     </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMessage"></span>
   </div>
 
   <script src="js/script.js"></script>
